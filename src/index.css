@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff5722;
+  --color-primary-hover: #e64a19;
+  --color-primary-light: rgba(255, 87, 34, 0.12);
+  --color-primary-foreground: #ffffff;
+  
+  --color-background-app: #090a0f;
+  --color-surface: #11131c;
+  --color-surface-muted: #181a24;
+  --color-foreground-app: #ffffff;
+  --color-muted-app: #8e939e;
+  --color-border-app: rgba(255, 255, 255, 0.08);
+  
+  --color-success-app: #10b981;
+  --color-warning-app: #f59e0b;
+  --color-danger-app: #ef4444;
+
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Base resets */
+body {
+  background-color: var(--color-background-app);
+  color: var(--color-foreground-app);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Radial Glow Backdrops (as shown in reference image) */
+.bg-orange-glow {
+  background-image: radial-gradient(circle at 50% -20%, rgba(255, 87, 34, 0.18), transparent 60%);
+}
+
+.bg-orange-glow-spot {
+  background-image: radial-gradient(circle at 90% 40%, rgba(255, 87, 34, 0.08), transparent 50%),
+                    radial-gradient(circle at 10% 80%, rgba(255, 87, 34, 0.05), transparent 50%);
+}
+
+.bg-glass {
+  background-color: rgba(17, 19, 28, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom micro-animations */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.4);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 87, 34, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 87, 34, 0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
